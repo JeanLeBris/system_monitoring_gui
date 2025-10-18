@@ -122,13 +122,13 @@ function update_system(container, system_and_meta){
         let element3 = elements3[0]
         // home_lab_data.get(ip).get("x").push(home_lab_data.get(ip).get("x").at(-1)+1);
         // console.log(system.cpu.load_percentage);
-        home_lab_data.get(ip).get("cpu").push(system.cpu.load_percentage);
+        // home_lab_data.get(ip).get("cpu").push(system.cpu.load_percentage);
         update_chart(home_lab_data.get(ip).get("cpu-chart"), system.cpu.load_percentage);
         element2 = elements2[1];
         // element2.textContent = Math.round(100*(system.ram.total_ram-system.ram.free_ram)/system.ram.total_ram)+"%";
         elements3 = element2.children;
         element3 = elements3[0]
-        home_lab_data.get(ip).get("ram").push(Math.round(100*(system.ram.total_ram-system.ram.free_ram)/system.ram.total_ram));
+        // home_lab_data.get(ip).get("ram").push(Math.round(100*(system.ram.total_ram-system.ram.free_ram)/system.ram.total_ram));
         update_chart(home_lab_data.get(ip).get("ram-chart"), Math.round(100*(system.ram.total_ram-system.ram.free_ram)/system.ram.total_ram));
     }
 }
@@ -169,14 +169,15 @@ function setup_system(container, system_and_meta){
     home_lab_data.set(ip, new Map());
     // home_lab_data.get(ip).set("x", new Array());
     // home_lab_data.get(ip).get("x").push(0);
-    home_lab_data.get(ip).set("cpu", new Array());
+    // home_lab_data.get(ip).set("cpu", new Array());
     if(system.accessed == true){
-        home_lab_data.get(ip).get("cpu").push(system.cpu.load_percentage);
+        // home_lab_data.get(ip).get("cpu").push(system.cpu.load_percentage);
+        home_lab_data.get(ip).set("cpu-chart", create_chart(element3, [system.cpu.load_percentage, ], "cpu load"));
     }
     else if(system.accessed == false){
-        home_lab_data.get(ip).get("cpu").push(0);
+        // home_lab_data.get(ip).get("cpu").push(0);
+        home_lab_data.get(ip).set("cpu-chart", create_chart(element3, [0, ], "cpu load"));
     }
-    home_lab_data.get(ip).set("cpu-chart", create_chart(element3, home_lab_data.get(ip).get("cpu"), "cpu load"));
     element2.appendChild(element3);
     element.appendChild(element2);
     element2 = document.createElement("div");
@@ -184,14 +185,15 @@ function setup_system(container, system_and_meta){
     // element2.textContent = Math.round(100*(system.ram.total_ram-system.ram.free_ram)/system.ram.total_ram)+"%";;
     element3 = document.createElement("canvas");
     element3.className = "system-resources canvas";
-    home_lab_data.get(ip).set("ram", new Array());
+    // home_lab_data.get(ip).set("ram", new Array());
     if(system.accessed == true){
-        home_lab_data.get(ip).get("ram").push(Math.round(100*(system.ram.total_ram-system.ram.free_ram)/system.ram.total_ram));
+        // home_lab_data.get(ip).get("ram").push(Math.round(100*(system.ram.total_ram-system.ram.free_ram)/system.ram.total_ram));
+        home_lab_data.get(ip).set("ram-chart", create_chart(element3, [Math.round(100*(system.ram.total_ram-system.ram.free_ram)/system.ram.total_ram), ], "ram load"));
     }
     else if(system.accessed == false){
-        home_lab_data.get(ip).get("ram").push(0);
+        // home_lab_data.get(ip).get("ram").push(0);
+        home_lab_data.get(ip).set("ram-chart", create_chart(element3, [0, ], "ram load"));
     }
-    home_lab_data.get(ip).set("ram-chart", create_chart(element3, home_lab_data.get(ip).get("ram"), "ram load"));
     element2.appendChild(element3);
     element.appendChild(element2);
 
