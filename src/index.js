@@ -21,7 +21,7 @@ function update_system(container, system_and_meta){
         element.style = "display: none;";
     }
     else if(system.accessed == 1){
-        element.style = "display: block;";
+        element.style = "display: flex;";
     }
     let elements2 = element.children;
     let element2 = elements2[0];
@@ -55,7 +55,7 @@ function setup_system(container, system_and_meta){
         element.style = "display: none;";
     }
     else if(system.accessed == 1){
-        element.style = "display: block;";
+        element.style = "display: flex;";
     }
     let element2 = document.createElement("div");
     element2.className = "system-resources-cpu";
