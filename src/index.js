@@ -121,6 +121,7 @@ function update_system(container, system_and_meta){
     let elements3 = element2.children;
     let element3 = elements3[0]
     // home_lab_data.get(ip).get("x").push(home_lab_data.get(ip).get("x").at(-1)+1);
+    console.log(system.cpu.load_percentage);
     home_lab_data.get(ip).get("cpu").push(system.cpu.load_percentage);
     update_chart(home_lab_data.get(ip).get("cpu-chart"), system.cpu.load_percentage);
     element2 = elements2[1];
