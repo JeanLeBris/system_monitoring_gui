@@ -8,7 +8,7 @@
 }
 
 .environment-system {
-    width: 400px;
+    width: 700px;
     /* height: 100px; */
     border-radius: 20px;
     padding: 10px;
@@ -36,4 +36,8 @@
 
 .environment-system > .system-resources > div {
     width: 45%;
+}
+
+.system-resources.canvas {
+    height: 200px;
 }
