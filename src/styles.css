@@ -1,0 +1,27 @@
+.environment {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+}
+
+.environment-system {
+    width: 400px;
+    /* height: 100px; */
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.environment-system.off {
+    background-color: red;
+}
+
+.environment-system.on {
+    background-color: green;
+}
+
+.environment-system > .system-ip {
+    margin-top: 0px;
+}
