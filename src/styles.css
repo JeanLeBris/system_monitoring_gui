@@ -24,6 +24,10 @@
     background-color: green;
 }
 
+.environment-system.inactive {
+    background-color: orange;
+}
+
 .environment-system > .system-ip {
     margin-top: 0px;
 }

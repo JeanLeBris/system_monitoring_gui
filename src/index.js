@@ -98,7 +98,8 @@ function update_system(container, system_and_meta){
 
     container.className = "environment-system";
     if(system.accessed == 0){
-        container.className += " off";
+        // container.className += " off";
+        container.className += " inactive";
     }
     else if(system.accessed == 1){
         container.className += " on";
@@ -111,7 +112,8 @@ function update_system(container, system_and_meta){
 
     element = elements[1];
     if(system.accessed == 0){
-        element.style = "display: none;";
+        // element.style = "display: none;";
+        element.style = "display: flex;";
     }
     else if(system.accessed == 1){
         element.style = "display: flex;";
@@ -247,8 +249,8 @@ function process_disconnection(err){
     let container;
     for(let i = 0; i < container_parent.childElementCount; i++){
         container = container_parent.children[i];
-        container.className = "environment-system off";
-        container.children[1].style = "display: none;";
+        container.className = "environment-system inactive";
+        container.children[1].style = "display: flex;";
     }
 }
 
