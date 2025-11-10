@@ -257,11 +257,16 @@ function process_disconnection(err){
 function get_data(){
     // let data_length = data_og.byteLength;
 
+    let target = document.getElementById("environment-target").value
+    if(target == "localhost"){
+        target = "127.0.0.1"
+    }
+
     let tmp = new Uint8Array(16);
     tmp.set(new Uint8Array("get info"), 0)
     tmp.reverse()
     tmp = tmp.buffer;
-    fetch("http://192.168.1.93:4148", {method: "POST", body: tmp, responseType: "json", signal: AbortSignal.timeout(300)})
+    fetch("http://" + target + ":4148", {method: "POST", body: tmp, responseType: "json", signal: AbortSignal.timeout(300)})
     .then(answer => answer.json())
     .then(data => process_answer(data))
     .catch(err => process_disconnection(err))
