@@ -1,13 +1,3 @@
-.environment {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    width: 100%;
-    padding-top: 20pt;
-}
-
 .environment-system {
     width: 700px;
     border-radius: 20px;

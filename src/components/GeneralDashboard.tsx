@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react'
 import GeneralDashboardElement from './GeneralDashboardElement'
-import '../styles.css'
+import './GeneralDashboard.css'
 
-function GeneralDashboard() {
-  const [target, setTarget] = useState("localhost")
+interface Props {
+  target: string;
+}
+
+function GeneralDashboard({target}: Props) {
   const [home_lab_data, ] = useState(new Map());
   const [test, set_test] = useState({size: 0, data:[]});
-
-  const handler = () => {
-    return (document.getElementById("environment-target") as HTMLInputElement).value
-  }
 
   function process_answer(data: any){
     if(data.data[0].ip == "local")
@@ -53,8 +52,8 @@ function GeneralDashboard() {
     }
   }
 
-  function get_data(){
-    let target = (document.getElementById("environment-target") as HTMLInputElement).value
+  function get_data(target: string){
+    // let target = (document.getElementById("environment-target") as HTMLInputElement).value
     if(target == "localhost"){
       target = "127.0.0.1"
     }
@@ -71,7 +70,7 @@ function GeneralDashboard() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      get_data();
+      get_data(target);
     }, 300);
 
     return () => clearInterval(interval);
@@ -79,8 +78,6 @@ function GeneralDashboard() {
 
   return (
     <>
-      <label htmlFor="environment-target">Target : </label>
-      <input type="text" id="environment-target" defaultValue={target} onChange={() => setTarget(handler)}/>
       <div id="home-lab" className="environment">
         {test.data.map((item) => (
           <GeneralDashboardElement cpu_data={home_lab_data.get(item["ip"]).get("cpu-data")} ram_data={home_lab_data.get(item["ip"]).get("ram-data")} data={item} key={item["ip"]} />
