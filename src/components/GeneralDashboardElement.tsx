@@ -46,10 +46,12 @@ function GeneralDashboardElement({cpu_data, ram_data, data}: Props) {
       options: {
         scales: {
           y: {
-            beginAtZero: true,
+            // beginAtZero: true,
             ticks: {
               color: 'black'
-            }
+            },
+            min: 0,
+            max: 100
           },
           x: {
             ticks: {
@@ -87,10 +89,14 @@ function GeneralDashboardElement({cpu_data, ram_data, data}: Props) {
       update_chart(ramChartRef.current, ram_data.at(-1))
     }
   })
-  
+
   return (
-    <div id={"home-lab_" + data.ip} className={'environment-system ' + (data.system.accessed ? 'on' : 'inactive')}>
-      <h2 className='system-ip'>{data.ip}</h2>
+    <div id={"home-lab-" + data.ip} className={'environment-system ' + (data.system.accessed ? 'on' : 'inactive')}>
+      <span>
+        <img src='./src/assets/copy-paste.png' width="20px" onClick={() => navigator.clipboard.writeText(data.ip == "local" ? "127.0.0.1" : data.ip)} />
+        <h2 className='system-ip'>{data.system.hostname}</h2>
+        <p>{data.ip}</p>
+      </span>
       <div className='system-resources' style={{display: "flex"}}>
         <div className='system-resources cpu'>
           <canvas className='system-resources canvas' ref={cpuCanvasRef}/>

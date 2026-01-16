@@ -10,7 +10,6 @@
 
 .environment-system {
     width: 700px;
-    /* height: 100px; */
     border-radius: 20px;
     padding: 10px;
     display: flex;
@@ -29,14 +28,25 @@
     background-color: orange;
 }
 
-.environment-system > .system-ip {
+.environment-system > span {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.environment-system > span > * {
     margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .environment-system > .system-resources {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 5%;
+    justify-content: center;
 }
 
 .environment-system > .system-resources > div {

@@ -12,6 +12,8 @@ function GeneralDashboard() {
   }
 
   function process_answer(data: any){
+    if(data.data[0].ip == "local")
+      data.data[0].ip = "127.0.0.1"
     set_test(data)
 
     let amount_of_systems = data.size;
@@ -19,7 +21,6 @@ function GeneralDashboard() {
     let system_and_meta;
     let ip;
     let system;
-    let container_found;
     let size = 50
 
     for(let i = 0; i < amount_of_systems; i++){
@@ -27,8 +28,6 @@ function GeneralDashboard() {
 
       ip = system_and_meta.ip;
       system = system_and_meta.system;
-
-      container_found = 0;
 
       if(home_lab_data.get(ip) == undefined){
         home_lab_data.set(ip, new Map())
@@ -48,12 +47,9 @@ function GeneralDashboard() {
     console.log(err)
     let container_parent = document.getElementById("home-lab") as HTMLElement;
     let container;
-    let child;
     for(let i = 0; i < container_parent.childElementCount; i++){
       container = container_parent.children[i];
       container.className = "environment-system inactive";
-      child = container.children[1] as HTMLElement
-      child.style = "display: flex;";
     }
   }
 
