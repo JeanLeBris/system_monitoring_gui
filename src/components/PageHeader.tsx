@@ -9,7 +9,7 @@ function PageHeader({targetHandler}: Props) {
     <div id="header">
       <div>
         <label htmlFor="environment-target">Target : </label>
-        <input type="text" id="environment-target" defaultValue="localhost" onChange={(value) => targetHandler(value)}/>
+        <input type="text" id="environment-target" defaultValue="localhost" onChange={() => targetHandler((document.getElementById("environment-target") as HTMLInputElement).value)}/>
       </div>
       <h1>System monitoring</h1>
       <div />

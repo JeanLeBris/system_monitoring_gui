@@ -1,0 +1,10 @@
+#navbar {
+    display: flex;
+    flex-direction: column;
+    width: 80px;
+}
+
+#navbar > * {
+    margin: 10%;
+    width: 80%;
+}

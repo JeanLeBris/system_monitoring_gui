@@ -6,6 +6,9 @@ h1 {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: auto;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 #header > * {
