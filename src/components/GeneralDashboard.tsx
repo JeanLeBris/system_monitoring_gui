@@ -62,7 +62,7 @@ function GeneralDashboard({target}: Props) {
     tmp.set(new TextEncoder().encode("get info"), 0)
     tmp.reverse()
     let tmp_buffer = tmp.buffer;
-    fetch("http://" + target + ":4148", {method: "POST", body: tmp_buffer, signal: AbortSignal.timeout(300)})
+    fetch("http://" + target + ":4148", {method: "POST", body: tmp_buffer, signal: AbortSignal.timeout(500)})
     .then(answer => answer.json())
     .then(data => process_answer(data))
     .catch(err => process_disconnection(err))
@@ -71,7 +71,7 @@ function GeneralDashboard({target}: Props) {
   useEffect(() => {
     const interval = setInterval(() => {
       get_data(target);
-    }, 300);
+    }, 500);
 
     return () => clearInterval(interval);
   });
