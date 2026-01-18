@@ -3,6 +3,7 @@ import GeneralDashboard from './components/GeneralDashboard'
 import PageHeader from './components/PageHeader'
 import './App.css'
 import NavigationBar from './components/NavigationBar'
+import SystemDashboard from './components/SystemDashboard'
 
 function App() {
   const [target, setTarget] = useState("localhost")       // Target to request data from system_monitoring_core process
@@ -91,6 +92,7 @@ function App() {
       <div id='body'>
         <PageHeader targetHandler={targetHandler} />
         {navigation == "general" && <GeneralDashboard target={target} test={test} home_lab_data={home_lab_data} />}
+        {navigation == "system" && <SystemDashboard target={target} test={test} home_lab_data={home_lab_data} />}
       </div>
     </>
   )

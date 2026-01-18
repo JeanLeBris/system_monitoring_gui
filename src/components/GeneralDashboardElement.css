@@ -1,4 +1,4 @@
-.environment-system {
+.general-dashboard-system {
     width: 700px;
     border-radius: 20px;
     padding: 10px;
@@ -6,19 +6,19 @@
     flex-direction: column;
 }
 
-.environment-system.off {
+.general-dashboard-system.off {
     background-color: red;
 }
 
-.environment-system.on {
+.general-dashboard-system.on {
     background-color: green;
 }
 
-.environment-system.inactive {
+.general-dashboard-system.inactive {
     background-color: orange;
 }
 
-.environment-system > span {
+.general-dashboard-system > span {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -26,12 +26,12 @@
     align-items: center;
 }
 
-.environment-system > span > * {
+.general-dashboard-system > span > * {
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
-.environment-system > .system-resources {
+.general-dashboard-system > .general-dashboard-system-resources {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -39,10 +39,10 @@
     justify-content: center;
 }
 
-.environment-system > .system-resources > div {
+.general-dashboard-system > .general-dashboard-system-resources > div {
     width: 45%;
 }
 
-.system-resources.canvas {
+.general-dashboard-system-resources.canvas {
     height: 200px;
 }

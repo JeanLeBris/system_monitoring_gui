@@ -1,10 +1,10 @@
 #root {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    /* width: 100%; */
 }
 
-body {
+html, body, #root {
   margin: 0;
   padding: 0;
   height: 100%;

@@ -91,18 +91,18 @@ function GeneralDashboardElement({cpu_data, ram_data, data}: Props) {
   })
 
   return (
-    <div id={"home-lab-" + data.ip} className={'environment-system ' + (data.system.accessed ? 'on' : 'inactive')}>
+    <div id={"home-lab-" + data.ip} className={'general-dashboard-system ' + (data.system.accessed ? 'on' : 'inactive')}>
       <span>
         <img src='./src/assets/copy-paste.png' width="20px" onClick={() => navigator.clipboard.writeText(data.ip == "local" ? "127.0.0.1" : data.ip)} />
-        <h2 className='system-ip'>{data.system.hostname}</h2>
+        <h2 className='general-dashboard-system-ip'>{data.system.hostname}</h2>
         <p>{data.ip}</p>
       </span>
-      <div className='system-resources' style={{display: "flex"}}>
-        <div className='system-resources cpu'>
-          <canvas className='system-resources canvas' ref={cpuCanvasRef}/>
+      <div className='general-dashboard-system-resources' style={{display: "flex"}}>
+        <div className='general-dashboard-system-resources cpu'>
+          <canvas className='general-dashboard-system-resources canvas' ref={cpuCanvasRef}/>
         </div>
-        <div className='system-resources ram'>
-          <canvas className='system-resources canvas' ref={ramCanvasRef}/>
+        <div className='general-dashboard-system-resources ram'>
+          <canvas className='general-dashboard-system-resources canvas' ref={ramCanvasRef}/>
         </div>
       </div>
     </div>
